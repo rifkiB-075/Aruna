@@ -6,7 +6,7 @@ const config = [
   ...compat.extends('next/core-web-vitals', 'next/typescript', 'plugin:jsx-a11y/recommended'),
   { rules: { '@typescript-eslint/no-explicit-any': 'error' } },
   // Hanya AI Gateway yang boleh mengimpor SDK provider; hanya lib/db yang menyentuh DB.
-  { ignores: ['.next/**', 'node_modules/**'] },
+  { ignores: ['.next/**', 'node_modules/**', 'next-env.d.ts'] },
 ];
 
 export default config;
