@@ -17,6 +17,8 @@ const serverSchema = z.object({
   CHAT_MAX_INPUT_CHARS: z.coerce.number().int().positive().default(1000),
   CHAT_RATE_LIMIT_PER_MIN: z.coerce.number().int().positive().default(10),
   RETENTION_DAYS_CHAT_EVENTS: z.coerce.number().int().positive().default(90),
+  QUOTA_ANON_PER_DAY: z.coerce.number().int().positive().default(5),
+  QUOTA_USER_PER_DAY: z.coerce.number().int().positive().default(20),
 });
 
 export type ServerEnv = z.infer<typeof serverSchema>;
