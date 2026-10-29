@@ -43,7 +43,7 @@
     "@playwright/test": "^1.48.0",
     "@secretlint/secretlint-rule-pattern": "^13.1.0",
     "@secretlint/secretlint-rule-preset-recommend": "^13.1.0",
-    "@types/node": "^22.0.0",
+    "@types/node": "^26.6.5",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "autoprefixer": "^10.4.20",
