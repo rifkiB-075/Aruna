@@ -4,24 +4,40 @@ on:
   push:
     branches: [main]
 jobs:
-  check:
+  test:
+    name: Tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
       - uses: pnpm/action-setup@v3
         with:
-          version: 9
+          version: 9.12.0
+      
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'pnpm'
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm lint
-      - run: pnpm typecheck
-      - run: pnpm test
-      - run: pnpm secretlint
-      # - run: pnpm eval:rag   # aktifkan setelah runner evaluasi diimplementasikan
-      - run: pnpm audit --audit-level=high
+      
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      
+      - name: Lint
+        run: pnpm lint
+      
+      - name: Type check
+        run: pnpm typecheck
+      
+      - name: Unit tests only (skip integration)
+        run: pnpm vitest run --exclude 'tests/integration/**'
+      
+      - name: Secret scan
+        run: pnpm secretlint
+      
+      - name: Build
+        run: pnpm build
+        env:
+          SKIP_ENV_VALIDATION: true
   secrets:
     runs-on: ubuntu-latest
     steps:

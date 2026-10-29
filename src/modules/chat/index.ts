@@ -17,3 +17,7 @@ export async function handleChat(question: string): Promise<ChatResult> {
   // Hanya scan.redacted yang boleh diproses lebih lanjut. Isi mentah tidak dicatat.
   return { status: "fallback", piiWarning: scan.hasPii };
 }
+
+// Export modul chat baru
+export { processChat } from "./orchestrator";
+export type { ChatResponse, ChatStatus as ChatResponseStatus } from "./orchestrator";

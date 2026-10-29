@@ -15,3 +15,7 @@ export interface QuotaDecision {
 export interface QuotaStore {
   consume(subject: QuotaSubject): Promise<QuotaDecision>;
 }
+
+export { getQuotaStore } from "./store";
+export { hashIpDaily } from "./hash";
+export { getQuotaExhaustedMessage } from "./messages";

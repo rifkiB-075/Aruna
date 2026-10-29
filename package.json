@@ -13,9 +13,11 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "test:watch": "vitest",
+    "test:integration": "vitest run tests/integration",
     "test:e2e": "playwright test",
-    "eval:rag": "tsx evals/run.ts",
-    "secretlint": "secretlint \"**/*\""
+    "secretlint": "secretlint '**/*'",
+    "eval:rag": "tsx src/scripts/eval-rag.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.5.0",
@@ -28,6 +30,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^2.5.0",
+    "xlsx": "^0.18.5",
     "zod": "^4.6.7"
   },
   "pnpm": {
