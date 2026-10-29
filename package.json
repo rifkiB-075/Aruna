@@ -20,7 +20,7 @@
     "eval:rag": "tsx src/scripts/eval-rag.ts"
   },
   "dependencies": {
-    "@supabase/ssr": "^0.5.0",
+    "@supabase/ssr": "^0.12.7",
     "@supabase/supabase-js": "^2.45.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
