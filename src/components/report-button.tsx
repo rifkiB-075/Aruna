@@ -12,7 +12,7 @@ interface ReportButtonProps {
  * Tombol laporan jawaban keliru dengan form sederhana.
  * ponytail: modal dialog, PII scan sebelum submit, toast notification.
  */
-export function ReportButton({ chatEventId, onSubmit }: ReportButtonProps) {
+export function ReportButton({ chatEventId: _chatEventId, onSubmit }: ReportButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [reason, setReason] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);

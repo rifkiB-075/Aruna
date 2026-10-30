@@ -20,8 +20,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
             <BrandMark />
             <nav aria-label="Utama" className="flex gap-4 text-body">
-              <Link href="/chat">Tanya asisten</Link>
-              <Link href="/layanan/ktp-el">Layanan</Link>
+              <Link href="/chat" className="inline-flex min-h-[44px] items-center">Tanya asisten</Link>
+              <Link href="/layanan/ktp-el" className="inline-flex min-h-[44px] items-center">Layanan</Link>
             </nav>
           </div>
         </header>

@@ -15,7 +15,7 @@ export interface ExtractedText {
  * Ekstraksi teks dari PDF sederhana (text-based).
  * MVP: placeholder, return dummy. Implementasi real: pdf-parse atau Supabase Edge Function.
  */
-export async function extractFromPDF(_buffer: ArrayBuffer): Promise<ExtractedText> {
+export async function extractFromPDF(_: ArrayBuffer): Promise<ExtractedText> {
   // ponytail: gunakan pdf-parse atau serverless function
   const text = "[PDF extraction placeholder - implement with pdf-parse]";
   return {
