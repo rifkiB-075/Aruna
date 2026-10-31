@@ -12,7 +12,7 @@ export interface ChatResult {
  * langkah 2-9 (intent, retrieval, ambang, LLM, validasi, pencatatan) belum diimplementasikan.
  * Selama belum lengkap, selalu FALLBACK; jangan pernah menebak.
  */
-export async function handleChat(question: string, _simpleLanguage = false): Promise<ChatResult> {
+export async function handleChat(question: string, _simpleLanguage = false, _javaneseMode = false): Promise<ChatResult> {
   const scan = scanAndRedact(question);
   // Hanya scan.redacted yang boleh diproses lebih lanjut. Isi mentah tidak dicatat.
   return { status: "fallback", piiWarning: scan.hasPii };
