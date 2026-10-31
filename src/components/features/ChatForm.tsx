@@ -39,6 +39,10 @@ export function ChatForm() {
   return (
     <div className="space-y-4">
       <p className="text-body text-neutral-700">Jawaban dari asisten AI berdasarkan sumber resmi. Jangan tulis NIK atau data pribadi.</p>
+      <div className="rounded-md bg-muted p-3 text-sm text-muted-foreground">
+        Dengan mengirim pesan, Anda menyetujui penyimpanan anonim untuk peningkatan layanan. 
+        Lihat <a href="/privasi" className="underline hover:text-foreground">Kebijakan Privasi</a>.
+      </div>
       <div>
         <label htmlFor="question" className="mb-2 block text-body-lg font-semibold">Pertanyaan Anda</label>
         <textarea

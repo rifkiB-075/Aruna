@@ -15,7 +15,7 @@ export default function HomePage() {
       <section>
         <h1 className="text-display font-bold">Pelajari layanan kependudukan Kota Semarang</h1>
         <p className="mt-3 text-body-lg">Lihat syarat, alur, biaya, dan waktu layanan dengan bahasa sederhana.</p>
-        <a href="/chat" className="mt-4 inline-flex min-h-touch items-center rounded-md bg-primary-700 px-5 py-2 font-semibold text-white no-underline">Tanya asisten</a>
+        <a href="/chat" className="mt-4 inline-flex h-[44px] min-w-touch items-center justify-center rounded-md bg-primary-700 px-5 font-semibold text-white no-underline">Tanya asisten</a>
       </section>
       <section aria-labelledby="h-layanan">
         <h2 id="h-layanan" className="text-h2 font-semibold">Pilih layanan</h2>

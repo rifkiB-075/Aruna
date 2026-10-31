@@ -20,16 +20,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
             <BrandMark />
             <nav aria-label="Utama" className="flex gap-4 text-body">
-              <Link href="/chat">Tanya asisten</Link>
-              <Link href="/layanan/ktp-el">Layanan</Link>
+              <Link href="/chat" className="inline-flex min-h-[44px] items-center">Tanya asisten</Link>
+              <Link href="/layanan/ktp-el" className="inline-flex min-h-[44px] items-center">Layanan</Link>
             </nav>
           </div>
         </header>
         <main id="konten" className="mx-auto max-w-5xl px-4 py-8">{children}</main>
         <footer className="border-t border-neutral-200 bg-surface">
-          <div className="mx-auto max-w-5xl px-4 py-6 text-body text-neutral-700">
+          <div className="mx-auto max-w-5xl px-4 py-6 text-body text-neutral-700 space-y-3">
             <p>Portal ini untuk sosialisasi dan edukasi. Pengajuan, pembuatan, dan perpanjangan dokumen dilakukan melalui kanal resmi Disdukcapil.</p>
-            <p className="mt-2">Portal ini bukan situs resmi pemerintah dan tidak memakai logo resmi.</p>
+            <p>Portal ini bukan situs resmi pemerintah dan tidak memakai logo resmi.</p>
+            <div className="flex items-center justify-center gap-4 pt-2 text-sm">
+              <Link href="/privasi" className="hover:underline">Kebijakan Privasi</Link>
+              <span>·</span>
+              <a href="tel:0243515015" className="hover:underline">(024) 3515015</a>
+            </div>
           </div>
         </footer>
       </body>
