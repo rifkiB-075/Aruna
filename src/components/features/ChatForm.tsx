@@ -18,6 +18,7 @@ export function ChatForm() {
   const [result, setResult] = useState<ChatResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [simpleLanguage, setSimpleLanguage] = useState(false);
+  const [javaneseMode, setJavaneseMode] = useState(false);
 
   async function submit() {
     setLoading(true);
@@ -26,7 +27,7 @@ export function ChatForm() {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question, simpleLanguage }),
+        body: JSON.stringify({ question, simpleLanguage, javaneseMode }),
       });
       if (!res.ok) throw new Error("gagal");
       setResult((await res.json()) as ChatResponse);
@@ -66,6 +67,18 @@ export function ChatForm() {
         />
         <label htmlFor="simple-mode" className="text-body cursor-pointer">
           Mode Bahasa Sederhana (untuk warga awam)
+        </label>
+      </div>
+      <div className="flex items-center gap-2">
+        <input
+          type="checkbox"
+          id="javanese-mode"
+          checked={javaneseMode}
+          onChange={(e) => setJavaneseMode(e.target.checked)}
+          className="h-4 w-4 rounded border-neutral-700"
+        />
+        <label htmlFor="javanese-mode" className="text-body cursor-pointer">
+          Mode Bahasa Jawa (terjemahan bantuan AI)
         </label>
       </div>
       <Button onClick={submit} disabled={loading || question.trim().length === 0}>
