@@ -3,7 +3,6 @@ import { handleChat } from "@/modules/chat";
 import { getOfficialChannel } from "@/lib/config/channel";
 import { rateLimit } from "@/lib/utils/rate-limit";
 
-const MAX_CHARS = 1000;
 const bodySchema = z.object({
   question: z.string().trim().min(1).max(1000),
   simpleLanguage: z.boolean().optional().default(false),
