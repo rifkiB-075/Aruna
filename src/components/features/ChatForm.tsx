@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { PiiWarning } from "./PiiWarning";
 import { FallbackNotice } from "./FallbackNotice";
+import { useConsent } from "./ConsentBanner";
 
 interface ChatResponse {
   status: "answered" | "fallback" | "out_of_scope";
@@ -19,6 +20,7 @@ export function ChatForm() {
   const [error, setError] = useState<string | null>(null);
   const [simpleLanguage, setSimpleLanguage] = useState(false);
   const [javaneseMode, setJavaneseMode] = useState(false);
+  const hasConsent = useConsent();
 
   async function submit() {
     setLoading(true);
@@ -41,10 +43,11 @@ export function ChatForm() {
   return (
     <div className="space-y-4">
       <p className="text-body text-neutral-700">Jawaban dari asisten AI berdasarkan sumber resmi. Jangan tulis NIK atau data pribadi.</p>
-      <div className="rounded-md bg-muted p-3 text-sm text-muted-foreground">
-        Dengan mengirim pesan, Anda menyetujui penyimpanan anonim untuk peningkatan layanan. 
-        Lihat <a href="/privasi" className="underline hover:text-foreground">Kebijakan Privasi</a>.
-      </div>
+      {!hasConsent && (
+        <div className="rounded-md border border-warning-300 bg-warning-50 p-3 text-body-sm text-warning-800">
+          ⚠️ Setujui pemberitahuan privasi di bawah untuk menggunakan chatbot.
+        </div>
+      )}
       <div>
         <label htmlFor="question" className="mb-2 block text-body-lg font-semibold">Pertanyaan Anda</label>
         <textarea
@@ -81,7 +84,7 @@ export function ChatForm() {
           Mode Bahasa Jawa (terjemahan bantuan AI)
         </label>
       </div>
-      <Button onClick={submit} disabled={loading || question.trim().length === 0}>
+      <Button onClick={submit} disabled={loading || question.trim().length === 0 || !hasConsent}>
         {loading ? "Memproses..." : "Tanya asisten"}
       </Button>
       <div aria-live="polite">
