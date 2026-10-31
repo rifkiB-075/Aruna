@@ -4,7 +4,10 @@ import { getOfficialChannel } from "@/lib/config/channel";
 import { rateLimit } from "@/lib/utils/rate-limit";
 
 const MAX_CHARS = 1000;
-const bodySchema = z.object({ question: z.string().trim().min(1).max(MAX_CHARS) });
+const bodySchema = z.object({
+  question: z.string().trim().min(1).max(MAX_CHARS),
+  simpleLanguage: z.boolean().optional().default(false),
+});
 
 export async function POST(req: Request) {
   // Kunci rate limit hanya dipakai di memori; tidak dicatat dan tidak disimpan.
@@ -16,7 +19,7 @@ export async function POST(req: Request) {
   if (!parsed.success) {
     return Response.json({ error: "Pertanyaan tidak valid." }, { status: 400 });
   }
-  const result = await handleChat(parsed.data.question);
+  const result = await handleChat(parsed.data.question, parsed.data.simpleLanguage);
   const channel = getOfficialChannel();
   return Response.json({
     status: result.status,
