@@ -17,5 +17,7 @@ export interface QuotaStore {
 }
 
 export { getQuotaStore } from "./store";
+export { MemoryQuotaStore } from "./store";
+export { DatabaseQuotaStore } from "./db-store";
 export { hashIpDaily } from "./hash";
 export { getQuotaExhaustedMessage } from "./messages";
